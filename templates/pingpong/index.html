@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ping Pong Reservation @ HDS</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <h1>Welcome back, {{user.username}}!</h1>
+    <a href="/logout/">Logout!</a>
+    {% else %}
+    <h1>Welcome to Ping Pong Reservation @HDS</h1>
+    <p>Are you ready to Pong?</p>
+    <a href="/register/">Then register here</a>
+    <p>OR</p>
+    <a href="/login/">Login here</a>
+    {% endif %}
+    {{ boldmessage.as_p }}
+</body>
+</html>

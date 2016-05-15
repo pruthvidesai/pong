@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register to Pong!</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h1>Register to Pong!</h1>
+
+    {% if registered %}
+    <strong> Thank you for registering!</strong>
+    {% else %}
+    <strong>Register here</strong>
+
+    <form id="usr_form" method="post" action="/register/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Display both forms. The as_p wraps each element in <p> tag, making it look neat -->
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+
+        <!-- Button click to submit the form -->
+        <input type="submit" name="submit" value="Register" />
+    </form>
+    {% endif %}
+</body>
+</html>
