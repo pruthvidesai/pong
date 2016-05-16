@@ -1,20 +1,30 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Ping Pong Reservation @ HDS</title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿{% extends 'base_home.html' %}
+
+{% load staticfiles %}
+
+{% block header %}
+<a class="login" href="/login/">Login</a>
+<a class="register" href="/register/">Register</a>
+{% endblock %}
+    
+{% block body %}
+<div class="center" align="center">
     {% if user.is_authenticated %}
-    <h1>Welcome back, {{user.username}}!</h1>
+    <h1 class="lato_300">Welcome back, {{user.username}}!</h1>
     <a href="/logout/">Logout!</a>
     {% else %}
-    <h1>Welcome to Ping Pong Reservation @HDS</h1>
-    <p>Are you ready to Pong?</p>
-    <a href="/register/">Then register here</a>
-    <p>OR</p>
-    <a href="/login/">Login here</a>
+    <div>
+        <!-- Invite -->
+        <img class="icon invite background_visibility" src="{% static 'img/home/invite.png' %}" alt="Invite" />
+        <!-- Reserve -->
+        <img class="icon reserve background_visibility" src="{% static 'img/home/reserve.png' %}" alt="Reserve" />
+        <!-- Play -->
+        <img class="icon play background_visibility" src="{% static 'img/home/play.png' %}" alt="Play" />
+    </div>
+    <div>
+        <h1 class="lato_300 background_visibility">Ping<span class="bold lato_400">Pong</span> Reservation</h1><br />
+        <h3 class="lato_300 background_visibility">Let's make pong easier, together.</h3><br />
+    </div>
     {% endif %}
-    {{ boldmessage.as_p }}
-</body>
-</html>
+</div>
+{% endblock %}
